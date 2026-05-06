@@ -8,6 +8,7 @@ import { splitMarkdownTiers } from '@/lib/split-tiers';
 import { missingRelatedSlugs } from '@/lib/related';
 import { termSlug } from '@/lib/term-id';
 import { buildEnglishTitleSegments } from '@/lib/english-initial';
+import { withBase } from '@/lib/base-path';
 
 export async function getStaticPaths() {
   const terms = await getCollection('terms');
@@ -18,13 +19,13 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 if (!slug) {
-  return Astro.redirect('/404');
+  return Astro.redirect(withBase('404.html'));
 }
 
 const terms = await getCollection('terms');
 const entry = terms.find((t) => termSlug(t.id) === slug);
 if (!entry) {
-  return Astro.redirect('/404');
+  return Astro.redirect(withBase('404.html'));
 }
 
 const tiers = splitMarkdownTiers(entry.body ?? '');
@@ -110,9 +111,9 @@ const enSegments = buildEnglishTitleSegments(entry.data.titleEn);
       <RelatedTerms relatedSlugs={entry.data.related} allTerms={terms} />
 
       <p class="lede" style="margin-top: 2rem;">
-        <a href={`/letter/${letter}/`}>← {letter?.toUpperCase()} の索引へ</a>
+        <a href={withBase(`letter/${letter}/`)}>← {letter?.toUpperCase()} の索引へ</a>
         {' · '}
-        <a href="/">トップへ</a>
+        <a href={withBase('')}>トップへ</a>
       </p>
     </article>
   </main>

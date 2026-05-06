@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import AlphabetNav from '@/components/AlphabetNav.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
+import { withBase } from '@/lib/base-path';
 
 interface Props {
   title: string;
@@ -45,11 +46,11 @@ const canonical = Astro.url.pathname;
     <header class="site-header">
       <div class="inner">
         <div class="brand">
-          <a href="/">3文字 IT・AI 辞典</a>
+          <a href={withBase('')}>3文字 IT・AI 辞典</a>
         </div>
         <div class="header-actions">
           <nav class="header-nav" aria-label="メイン">
-            <a href="/">トップ</a>
+            <a href={withBase('')}>トップ</a>
           </nav>
           <ThemeToggle />
         </div>
@@ -58,7 +59,7 @@ const canonical = Astro.url.pathname;
     <AlphabetNav activeLetter={activeLetter} />
     <slot />
     <footer class="site-footer">
-      <small>ひな形（静的サイト）。一般公開・マネタイズ前提で拡張してください。</small>
+      <small>3文字 IT・AI 辞典（静的サイト）</small>
     </footer>
   </body>
 </html>

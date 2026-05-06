@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { termSlug } from '@/lib/term-id';
+import { withBase } from '@/lib/base-path';
 
 const terms = (await getCollection('terms')).sort((a, b) =>
   termSlug(a.id).localeCompare(termSlug(b.id), 'en'),
@@ -44,12 +45,12 @@ function searchBlob(t: (typeof terms)[number]): string {
       一致する用語がありません。別のキーワードを試してください。
     </p>
 
-    <h2 class="page-title" style="font-size: 1.2rem; margin-top: 2rem;">用語一覧（ひな形サンプル）</h2>
+    <h2 class="page-title" style="font-size: 1.2rem; margin-top: 2rem;">用語一覧</h2>
     <ul id="term-list" class="card-list">
       {
         terms.map((t) => (
           <li data-search={searchBlob(t)}>
-            <a href={`/terms/${termSlug(t.id)}/`}>
+            <a href={withBase(`terms/${termSlug(t.id)}/`)}>
               {t.data.titleJa}{' '}
               <span style="color: var(--muted); font-weight: 600;">
                 {termSlug(t.id).toUpperCase()}

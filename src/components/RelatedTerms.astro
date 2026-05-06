@@ -1,6 +1,7 @@
 ---
 import type { TermEntry } from '@/lib/related';
 import { termMap } from '@/lib/related';
+import { withBase } from '@/lib/base-path';
 
 interface Props {
   relatedSlugs: string[];
@@ -27,7 +28,7 @@ const items = relatedSlugs
       <ul class="related-list">
         {items.map(({ slug, titleJa }) => (
           <li>
-            <a href={`/terms/${slug}/`}>{titleJa}</a>
+            <a href={withBase(`terms/${slug}/`)}>{titleJa}</a>
           </li>
         ))}
       </ul>

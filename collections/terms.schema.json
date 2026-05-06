@@ -1,0 +1,39 @@
+{
+  "$ref": "#/definitions/terms",
+  "definitions": {
+    "terms": {
+      "type": "object",
+      "properties": {
+        "titleJa": {
+          "type": "string"
+        },
+        "titleEn": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "titleJa",
+        "titleEn"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

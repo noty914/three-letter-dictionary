@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { termSlug } from '@/lib/term-id';
+import { withBase } from '@/lib/base-path';
 
 export async function getStaticPaths() {
   const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -43,7 +44,7 @@ const azKey = /^[A-Z]$/.test(letterUpper) ? letterUpper : null;
         <ul class="card-list">
           {terms.map((t) => (
             <li>
-              <a href={`/terms/${termSlug(t.id)}/`}>
+              <a href={withBase(`terms/${termSlug(t.id)}/`)}>
                 {t.data.titleJa}{' '}
                 <span style="color: var(--muted); font-weight: 600;">
                   {termSlug(t.id).toUpperCase()}

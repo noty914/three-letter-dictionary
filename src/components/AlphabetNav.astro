@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/lib/base-path';
+
 interface Props {
   activeLetter?: string;
 }
@@ -16,7 +18,7 @@ const { activeLetter } = Astro.props;
         const varName = `--az-${L}`;
         return (
           <a
-            href={`/letter/${lower}/`}
+            href={withBase(`letter/${lower}/`)}
             class:list={['az-link', { active: activeLetter === lower }]}
             style={`color: var(${varName});`}
             aria-current={activeLetter === lower ? 'page' : undefined}
