@@ -58,6 +58,8 @@ html {
   --input-focus-border: #93c5fd;
   --ad-slot-border: #d4d4d4;
   --ad-slot-bg: linear-gradient(180deg, #f8f9fa 0%, #f1f3f5 100%);
+  /* タグ型ピル（左が尖ったプライスタグ形）— clip-path のくぼみ量 */
+  --tag-notch-pct: 13%;
 
   font-family: system-ui, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
   line-height: 1.65;
@@ -218,25 +220,45 @@ a:hover {
 
 .tag-pill {
   display: inline-block;
+  position: relative;
   margin: 0.2rem 0.35rem 0 0;
-  padding: 0.32rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
+  padding: 0.34rem 0.75rem 0.34rem 1rem;
+  border: none;
+  border-radius: 0;
+  /* 左が△の頂点、右は垂直（添付のプライスタグ型） */
+  clip-path: polygon(
+    0 50%,
+    var(--tag-notch-pct) 0,
+    100% 0,
+    100% 100%,
+    var(--tag-notch-pct) 100%
+  );
+  -webkit-clip-path: polygon(
+    0 50%,
+    var(--tag-notch-pct) 0,
+    100% 0,
+    100% 100%,
+    var(--tag-notch-pct) 100%
+  );
   background: var(--surface);
   color: var(--text);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
+  /* clip-path 後も形に沿った縁取り */
+  filter: drop-shadow(0 0 0 1px var(--border))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
   transition:
-    border-color 0.12s,
     background 0.12s,
+    filter 0.12s,
     transform 0.12s;
 }
 
 .tag-pill:hover {
   color: var(--text);
-  border-color: var(--related-hover-border, #d4d4d4);
   background: var(--az-link-cell-bg-hover, #f8f9fa);
+  filter: drop-shadow(0 0 0 1px var(--related-hover-border, #d4d4d4))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
   transform: translateY(-1px);
 }
 
@@ -244,9 +266,14 @@ html[data-theme='dark'] .tag-pill:hover {
   background: var(--az-link-cell-bg-hover);
 }
 
+.tag-pill:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
 .tag-pill--large {
   font-size: 0.95rem;
-  padding: 0.45rem 0.85rem;
+  padding: 0.48rem 0.95rem 0.48rem 1.15rem;
 }
 
 .tag-pill--inline {
