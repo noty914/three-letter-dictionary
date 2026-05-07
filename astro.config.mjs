@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // GitHub Pages（プロジェクトサイト）向けに site / base を自動設定
 // 公開 URL: https://<owner>.github.io/<repo>/
@@ -21,6 +22,7 @@ const base = isGithubRepoBuild ? `/${repoFromSlug}/` : '/';
 export default defineConfig({
   site,
   base,
+  integrations: [sitemap()],
   compressHTML: true,
   trailingSlash: 'always',
 });
