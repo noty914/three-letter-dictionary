@@ -12,7 +12,7 @@ function formatFiveWOneH(md: string): string {
   const lines = md.split(/\r?\n/);
   const out: string[] = [];
   const keyPattern =
-    '(Why｜[^:：]+|Who｜[^:：]+|When｜[^:：]+|Where｜[^:：]+|How｜[^:：]+)';
+    'Why｜[^:：]+|Who｜[^:：]+|When｜[^:：]+|Where｜[^:：]+|How｜[^:：]+';
   const iconMap: Record<string, string> = {
     Why: '💡',
     Who: '🙋',
@@ -30,10 +30,13 @@ function formatFiveWOneH(md: string): string {
       new RegExp(`^\\s*-\\s*(${keyPattern})\\s*(?:[:：]\\s*(.+))?\\s*$`),
     );
     if (w1hMatched) {
-      const key = w1hMatched[1].split('｜')[0];
+      const label = w1hMatched[1];
+      const description = w1hMatched[2]?.trim() ?? '';
+      const key = label.split('｜')[0];
       const icon = iconMap[key] ?? '◇';
-      out.push(`${icon} ${w1hMatched[1]}`);
-      if (w1hMatched[2]) out.push(w1hMatched[2]);
+      out.push(`${icon} ${label}`);
+      out.push('');
+      if (description) out.push(description);
       out.push('');
       continue;
     }
@@ -43,7 +46,9 @@ function formatFiveWOneH(md: string): string {
     );
     if (canDoMatched) {
       out.push(`✨ ${canDoMatched[1]}`);
+      out.push('');
       if (canDoMatched[2]) out.push(canDoMatched[2]);
+      out.push('');
       continue;
     }
 
@@ -52,7 +57,9 @@ function formatFiveWOneH(md: string): string {
     );
     if (misconceptionMatched) {
       out.push(`⚠️ ${misconceptionMatched[1]}`);
+      out.push('');
       if (misconceptionMatched[2]) out.push(misconceptionMatched[2]);
+      out.push('');
       continue;
     }
 
