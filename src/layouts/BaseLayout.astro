@@ -13,6 +13,12 @@ interface Props {
 
 const { title, description = SITE_DESCRIPTION, activeLetter } = Astro.props;
 const canonical = Astro.url.pathname;
+
+/** 検索結果のタイトル用：ページ題にサイト名を付与（重複しないよう既に含む場合はそのまま） */
+const documentTitle = title.includes(SITE_NAME)
+  ? title
+  : `${title} | ${SITE_NAME}`;
+const canonicalUrl = new URL(canonical, Astro.site).href;
 ---
 
 <!doctype html>
@@ -40,8 +46,15 @@ const canonical = Astro.url.pathname;
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <title>{title}</title>
-    <link rel="canonical" href={new URL(canonical, Astro.site).href} />
+    <title>{documentTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={documentTitle} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
     <header class="site-header">

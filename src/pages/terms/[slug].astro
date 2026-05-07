@@ -9,6 +9,7 @@ import { missingRelatedSlugs } from '@/lib/related';
 import { termSlug } from '@/lib/term-id';
 import { buildEnglishTitleSegments } from '@/lib/english-initial';
 import { withBase } from '@/lib/base-path';
+import { SITE_NAME } from '@/config/site';
 import { tagToParam } from '@/lib/tags';
 
 export async function getStaticPaths() {
@@ -38,8 +39,9 @@ if (broken.length > 0) {
 }
 
 const letter = termSlug(entry.id)[0]?.toLowerCase() ?? undefined;
-const pageTitle = `${entry.data.titleJa}（${termSlug(entry.id).toUpperCase()}）`;
-const description = `${entry.data.titleEn} — 初級・中級・上級の解説。`;
+/** 検索結果・ブラウザタブ向け（「〇〇とは？」形式。サイト名は BaseLayout が付与） */
+const pageTitle = `${entry.data.titleJa}とは？`;
+const description = `「${entry.data.titleJa}」とは？ ${entry.data.titleEn}。初級・中級・上級で解説。${SITE_NAME}。`;
 const enSegments = buildEnglishTitleSegments(entry.data.titleEn, termSlug(entry.id));
 ---
 

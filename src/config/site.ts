@@ -4,7 +4,8 @@
  * GitHub Pages の URL は `https://<ユーザー>.github.io/three-letter-dictionary/` のように
  * **リポジトリ名 `three-letter-dictionary`** と揃えると分かりやすいです（GitHub でリネーム後、再デプロイ）。
  */
-export const SITE_NAME = 'Three-Letter Dictionary';
+/** サイト名（ヘッダ・フッター・検索結果の title に使用） */
+export const SITE_NAME = '3文字アルファベット辞典';
 
 /** トップのリード文（日本語のまま：読者は国内想定） */
 export const SITE_LEDE_PRIMARY =
@@ -13,8 +14,8 @@ export const SITE_LEDE_PRIMARY =
 export const SITE_LEDE_SECOND =
   '上部の <strong>A–Z</strong> から頭文字で絞り込み、検索、または下の一覧から用語を選んでください。';
 
-/** 既定の meta description（英語主＋日本語キーワードを少し） */
+/** 既定の meta description（検索スニペット用・日本語） */
 export const SITE_DESCRIPTION =
-  'Three-Letter Dictionary — IT & AI three-letter acronym reference for non-engineers (beginner / intermediate / advanced). 非エンジニア向けの略語辞典。';
+  'IT・ビジネスでよく出る3文字略語を、初級・中級・上級に分けて解説する無料の辞典サイトです。';
 
 export const SITE_FOOTER = `${SITE_NAME} · static site`;
