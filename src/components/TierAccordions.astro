@@ -8,6 +8,77 @@ interface Props {
 
 const { intermediateMd, advancedMd } = Astro.props;
 
+function extractCanDoBulletsFromAdvanced(md: string): string[] {
+  const lines = md.split(/\r?\n/);
+  const out: string[] = [];
+  let inCanDo = false;
+  for (const line of lines) {
+    if (/^###\s*これで実際にできること/.test(line.trim())) {
+      inCanDo = true;
+      continue;
+    }
+    if (inCanDo && /^###\s+/.test(line.trim())) break;
+    if (!inCanDo) continue;
+    const bullet = line.match(/^\s*-\s+(.+)\s*$/);
+    if (bullet) out.push(bullet[1]);
+  }
+  return out.slice(0, 3);
+}
+
+function buildIntermediateTemplateFromProse(md: string, advanced: string): string {
+  const paragraphs = md
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  const findByPrefix = (prefix: string) =>
+    paragraphs.find((p) => p.startsWith(prefix)) ?? '';
+
+  const why = paragraphs[0] ?? 'この用語を使う目的を整理するため。';
+  const howRaw = findByPrefix('動き方は');
+  const whenRaw = findByPrefix('典型シーンは');
+  const misconceptionRaw = findByPrefix('混同しやすいのは');
+
+  const normalizeSentence = (text: string, prefix: string) =>
+    text
+      .replace(new RegExp(`^${prefix}[、,]?\\s*[「"]?`), '')
+      .replace(/[」"]?です。?$/, '')
+      .trim();
+
+  const how = howRaw
+    ? normalizeSentence(howRaw, '動き方は')
+    : '1) 目的を確認 -> 2) 手順を決める -> 3) 運用へ適用する';
+  const when = whenRaw
+    ? normalizeSentence(whenRaw, '典型シーンは')
+    : '導入や運用方針を決める場面';
+  const misconception = misconceptionRaw
+    ? normalizeSentence(misconceptionRaw, '混同しやすいのは')
+    : '似た用語と目的が同じではない点に注意。';
+
+  const canDoBullets = extractCanDoBulletsFromAdvanced(advanced);
+  const canDo = canDoBullets.length
+    ? canDoBullets
+    : [
+        '運用手順を標準化し、作業のばらつきを減らせる',
+        '判断基準を共有し、意思決定を速くできる',
+        '変更時の影響を把握し、手戻りを減らせる',
+      ];
+
+  return [
+    `- Why｜何のために使うか: ${why}`,
+    '- Who｜誰（どんな役職・スキルセットの人）が主に使うか: 導入・運用に関わる担当者（情報システム部門、業務担当、管理者など）。',
+    `- When｜どんな場面で使うか: ${when}`,
+    '- Where｜どこで動く/使うか（社内・クラウド・端末など）: 対象システムや業務環境（社内・クラウド・端末）で利用する。',
+    `- How｜どうやって使うか: ${how}`,
+    '',
+    '- できること｜導入後の実務効果:',
+    ...canDo.map((b) => `  - ${b}`),
+    '',
+    '- よくある誤解｜似た用語との差分:',
+    `  - ${misconception}`,
+  ].join('\n');
+}
+
 function formatFiveWOneH(md: string): string {
   const lines = md.split(/\r?\n/);
   const out: string[] = [];
@@ -33,7 +104,8 @@ function formatFiveWOneH(md: string): string {
     if (parts.length <= 1) return text.replace(/^(\d+)\)/, '$1）');
     return parts
       .map((part, idx) => part.replace(/^(\d+)\)/, '$1）') || `${idx + 1}）${part}`)
-      .join('\n');
+      // Markdown上で改行を保持するため hard line break を使う
+      .join('  \n');
   };
 
   const addDividerIfNeeded = () => {
@@ -106,7 +178,10 @@ function formatFiveWOneH(md: string): string {
   return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
-const intermediateMdForDisplay = formatFiveWOneH(intermediateMd);
+const normalizedIntermediateMd = /^\s*-\s*Why｜/m.test(intermediateMd)
+  ? intermediateMd
+  : buildIntermediateTemplateFromProse(intermediateMd, advancedMd);
+const intermediateMdForDisplay = formatFiveWOneH(normalizedIntermediateMd);
 ---
 
 {
