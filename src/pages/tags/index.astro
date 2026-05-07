@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { collectAllTags, tagToParam } from '@/lib/tags';
+import { withBase } from '@/lib/base-path';
+
+const terms = await getCollection('terms');
+const tags = collectAllTags(terms);
+---
+
+<BaseLayout title="タグ一覧" description="用語をタグから探せます。">
+  <main class="container">
+    <h1 class="page-title">タグ一覧</h1>
+    <p class="lede">タグを選ぶと、そのタグが付いた用語だけが表示されます。</p>
+    <ul class="tag-directory">
+      {
+        tags.map((tag) => (
+          <li>
+            <a class="tag-pill tag-pill--large" href={withBase(`tags/${tagToParam(tag)}/`)}>
+              {tag}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

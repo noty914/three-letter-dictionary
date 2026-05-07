@@ -2,44 +2,41 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { termSlug } from '@/lib/term-id';
+import { collectAllTags, paramToTag, tagToParam } from '@/lib/tags';
 import { withBase } from '@/lib/base-path';
 
 export async function getStaticPaths() {
-  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  return letters.map((letter) => ({ params: { letter } }));
+  const terms = await getCollection('terms');
+  const tags = collectAllTags(terms);
+  return tags.map((tag) => ({
+    params: { tag: tagToParam(tag) },
+  }));
 }
 
-const { letter } = Astro.params;
+const param = Astro.params.tag;
+const rawTag = paramToTag(param);
 const all = await getCollection('terms');
 const terms = all
-  .filter((t) => termSlug(t.id).toLowerCase().startsWith(letter ?? ''))
+  .filter((t) => (t.data.tags ?? []).includes(rawTag))
   .sort((a, b) => termSlug(a.id).localeCompare(termSlug(b.id), 'en'));
 
-const letterUpper = (letter ?? '').toUpperCase();
-const title = `${letterUpper} で始まる用語`;
-const azKey = /^[A-Z]$/.test(letterUpper) ? letterUpper : null;
+const title = `タグ「${rawTag}」の用語`;
 ---
 
-<BaseLayout title={title} activeLetter={letter}>
+<BaseLayout title={title} description={`タグ ${rawTag} が付いた用語一覧。`}>
   <main class="container">
-    <h1 class="page-title letter-page-title" aria-label={azKey ? title : undefined}>
-      {
-        azKey ? (
-          <span aria-hidden="true">
-            <span class="letter-page-title__az" style={`color: var(--az-${azKey});`}>
-              {azKey}
-            </span>
-            <span class="letter-page-title__rest">で始まる用語</span>
-          </span>
-        ) : (
-          title
-        )
-      }
+    <p class="lede" style="margin-bottom: 0.5rem;">
+      <a href={withBase('tags/')}>← タグ一覧</a>
+      {' · '}
+      <a href={withBase('')}>トップ</a>
+    </p>
+    <h1 class="page-title">
+      タグ: <span class="tag-pill tag-pill--inline">{rawTag}</span>
     </h1>
     <p class="lede">該当 {terms.length} 件</p>
     {
       terms.length === 0 ? (
-        <p>まだこの文字では登録がありません。別の文字を選ぶか、用語を追加してください。</p>
+        <p>このタグの用語はありません。</p>
       ) : (
         <ul class="card-list">
           {terms.map((t) => (

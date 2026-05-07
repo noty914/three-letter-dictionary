@@ -181,7 +181,7 @@ a:hover {
 
 .card-list a {
   display: block;
-  padding: 0.85rem 1rem;
+  padding: 0.55rem 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -190,17 +190,96 @@ a:hover {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
+.term-card__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem 0.35rem;
+}
+
+.term-card__abbr {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.term-card__en {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 .card-list a:hover {
   color: var(--text);
   border-color: var(--card-hover-border, #d4d4d4);
   box-shadow: var(--card-hover-shadow, 0 4px 24px rgba(0, 0, 0, 0.06));
 }
 
-.card-list .meta {
-  display: block;
-  font-size: 0.82rem;
+/* 用語カード内の英語副題（1行寄せ・旧 .meta は廃止） */
+
+.tag-pill {
+  display: inline-block;
+  margin: 0.2rem 0.35rem 0 0;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 0.12s,
+    background 0.12s,
+    transform 0.12s;
+}
+
+.tag-pill:hover {
+  color: var(--text);
+  border-color: var(--related-hover-border, #d4d4d4);
+  background: var(--az-link-cell-bg-hover, #f8f9fa);
+  transform: translateY(-1px);
+}
+
+html[data-theme='dark'] .tag-pill:hover {
+  background: var(--az-link-cell-bg-hover);
+}
+
+.tag-pill--large {
+  font-size: 0.95rem;
+  padding: 0.45rem 0.85rem;
+}
+
+.tag-pill--inline {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.term-tags {
+  margin: -0.25rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.term-tags__label {
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--muted);
-  margin-top: 0.2rem;
+  margin-right: 0.15rem;
+}
+
+.tag-directory {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.tag-directory li {
+  margin: 0;
 }
 
 /* アコーディオン（②③） */
@@ -306,6 +385,13 @@ details.term-tier[open] summary {
   align-items: center;
   gap: 0.65rem;
   flex-wrap: wrap;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
 }
 
 .header-nav a {

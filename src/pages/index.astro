@@ -50,12 +50,11 @@ function searchBlob(t: (typeof terms)[number]): string {
       {
         terms.map((t) => (
           <li data-search={searchBlob(t)}>
-            <a href={withBase(`terms/${termSlug(t.id)}/`)}>
-              {t.data.titleJa}{' '}
-              <span style="color: var(--muted); font-weight: 600;">
-                {termSlug(t.id).toUpperCase()}
+            <a class="term-card__link" href={withBase(`terms/${termSlug(t.id)}/`)}>
+              <span class="term-card__line">
+                <strong class="term-card__abbr">{t.data.titleJa}</strong>
+                <span class="term-card__en">（{t.data.titleEn}）</span>
               </span>
-              <span class="meta">{t.data.titleEn}</span>
             </a>
           </li>
         ))
