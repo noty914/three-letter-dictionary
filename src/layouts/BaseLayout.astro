@@ -3,6 +3,7 @@ import '@/styles/global.css';
 import AlphabetNav from '@/components/AlphabetNav.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
 import { withBase } from '@/lib/base-path';
+import { SITE_DESCRIPTION, SITE_FOOTER, SITE_NAME } from '@/config/site';
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ interface Props {
   activeLetter?: string;
 }
 
-const { title, description = 'IT・AI の3文字略語を、初級・中級・上級で読む辞典。', activeLetter } = Astro.props;
+const { title, description = SITE_DESCRIPTION, activeLetter } = Astro.props;
 const canonical = Astro.url.pathname;
 ---
 
@@ -46,7 +47,7 @@ const canonical = Astro.url.pathname;
     <header class="site-header">
       <div class="inner">
         <div class="brand">
-          <a href={withBase('')}>3文字 IT・AI 辞典</a>
+          <a href={withBase('')}>{SITE_NAME}</a>
         </div>
         <div class="header-actions">
           <nav class="header-nav" aria-label="メイン">
@@ -60,7 +61,7 @@ const canonical = Astro.url.pathname;
     <AlphabetNav activeLetter={activeLetter} />
     <slot />
     <footer class="site-footer">
-      <small>3文字 IT・AI 辞典（静的サイト）</small>
+      <small>{SITE_FOOTER}</small>
     </footer>
   </body>
 </html>

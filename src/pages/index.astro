@@ -3,6 +3,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { termSlug } from '@/lib/term-id';
 import { withBase } from '@/lib/base-path';
+import {
+  SITE_DESCRIPTION,
+  SITE_LEDE_PRIMARY,
+  SITE_LEDE_SECOND,
+  SITE_NAME,
+} from '@/config/site';
 
 const terms = (await getCollection('terms')).sort((a, b) =>
   termSlug(a.id).localeCompare(termSlug(b.id), 'en'),
@@ -20,15 +26,11 @@ function searchBlob(t: (typeof terms)[number]): string {
 }
 ---
 
-<BaseLayout title="3文字 IT・AI 辞典" description="非エンジニア向けの略語辞典。初級・中級・上級の三層で読めます。">
+<BaseLayout title={SITE_NAME} description={SITE_DESCRIPTION}>
   <main class="container">
-    <h1 class="page-title">3文字 IT・AI 辞典</h1>
-    <p class="lede">
-      よく使われる略語を、<strong>①初級</strong>（会議やニュースでの見え方）、<strong>②中級</strong>（仕組みの輪郭）、<strong>③上級</strong>（技術寄りのニュアンス）に分けて整理します。正式名称は英語併記です。
-    </p>
-    <p class="lede">
-      上部の <strong>A–Z</strong> から頭文字で絞り込み、検索、または下の一覧から用語を選んでください。
-    </p>
+    <h1 class="page-title">{SITE_NAME}</h1>
+    <p class="lede" set:html={SITE_LEDE_PRIMARY}></p>
+    <p class="lede" set:html={SITE_LEDE_SECOND}></p>
 
     <form class="term-search-form" role="search" aria-label="用語検索">
       <label for="term-search">用語を検索</label>

@@ -1,0 +1,77 @@
+■ ZIP で .github が載らないとき（ブラウザだけで OK）
+
+GitHub の画面から「隠しフォルダ」を作れます。ZIP は不要です。
+
+手順
+
+1) ブラウザで自分のリポジトリを開く（例: noty914 / three-letter-dictionary）
+
+2) 「Add file」→「Create new file」
+
+3) ファイル名の欄に、次のパスをそのまま入力する（コピペ可）
+
+   .github/workflows/deploy.yml
+
+   ※ 先頭のドットを忘れないこと。.github が自動で作られます。
+
+4) 下の大きな編集欄に、次のブロックをすべてコピーして貼り付ける
+
+----- ここから YAML（この行は含めない）-----
+name: Deploy Astro to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+----- ここまで YAML -----
+
+5) 「Commit new file」で保存
+
+6) Settings → Pages → Source が「GitHub Actions」になっていることを確認
+
+7) Actions タブで「Deploy Astro to GitHub Pages」が動くか確認（失敗したらログを見る）
+
+■ 別のやり方（参考）
+
+・リポジトリの Code 画面でキーボードの「.」を押すと github.dev が開きます。左のエクスプローラで同じパスにファイルを作っても同じです。
+
+・7-Zip など別の圧縮ソフトで ZIP を作ると、隠し属性のフォルダも含めやすいことがあります（それでも難しければ上のブラウザ手順が確実です）。
+
