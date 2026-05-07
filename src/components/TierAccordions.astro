@@ -23,6 +23,19 @@ function formatFiveWOneH(md: string): string {
     How: '🔧',
   };
 
+  const formatHowDescription = (text: string): string => {
+    // "1) ... -> 2) ... -> 3) ..." を
+    // "1）...\n2）...\n3）..." のプレーンテキストへ整形する
+    const parts = text
+      .split(/\s*->\s*/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+    if (parts.length <= 1) return text.replace(/^(\d+)\)/, '$1）');
+    return parts
+      .map((part, idx) => part.replace(/^(\d+)\)/, '$1）') || `${idx + 1}）${part}`)
+      .join('\n');
+  };
+
   const addDividerIfNeeded = () => {
     if (hasSection) out.push('---', '');
     hasSection = true;
@@ -44,7 +57,9 @@ function formatFiveWOneH(md: string): string {
       const icon = iconMap[key] ?? '◇';
       out.push(`${icon} ${label}`);
       out.push('');
-      if (description) out.push(description);
+      if (description) {
+        out.push(key === 'How' ? formatHowDescription(description) : description);
+      }
       out.push('');
       inPlusSection = null;
       continue;
