@@ -12,7 +12,7 @@ const { intermediateMd, advancedMd } = Astro.props;
 {
   intermediateMd && (
     <details class="term-tier" data-tier="intermediate">
-      <summary>中級（②）</summary>
+      <summary>② ちょっとだけ詳しく</summary>
       <div class="tier-body">
         <MarkdownHtml markdown={intermediateMd} />
       </div>
@@ -23,7 +23,7 @@ const { intermediateMd, advancedMd } = Astro.props;
 {
   advancedMd && (
     <details class="term-tier" data-tier="advanced">
-      <summary>上級（③）</summary>
+      <summary>③ もっと知りたい人向け</summary>
       <div class="tier-body">
         <MarkdownHtml markdown={advancedMd} />
       </div>

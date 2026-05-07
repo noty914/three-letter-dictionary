@@ -7,8 +7,10 @@ export interface TierBlocks {
 }
 
 /**
- * 本文は見出しで区切る: ## 初級 / ## 中級 / ## 上級
- * （「（①）」などの追記はOK。見出し行の先頭が上記であれば認識）
+ * 本文は見出しで区切る。
+ * 互換対応:
+ * - 旧: ## 初級 / ## 中級 / ## 上級
+ * - 新: ## ① 非エンジニア向けのざっくり概要 / ## ② ちょっとだけ詳しく / ## ③ もっと知りたい人向け
  */
 export function splitMarkdownTiers(md: string): TierBlocks {
   const buf: Record<TierKey, string[]> = {
@@ -19,11 +21,17 @@ export function splitMarkdownTiers(md: string): TierBlocks {
   let current: TierKey | null = null;
 
   for (const line of md.split(/\r?\n/)) {
-    const heading = line.match(/^##\s*(初級|中級|上級)/);
-    if (heading) {
-      if (heading[1] === '初級') current = 'primary';
-      else if (heading[1] === '中級') current = 'intermediate';
-      else if (heading[1] === '上級') current = 'advanced';
+    const trimmed = line.trim();
+    if (/^##\s*(初級|①)(\s|$)/.test(trimmed)) {
+      current = 'primary';
+      continue;
+    }
+    if (/^##\s*(中級|②)(\s|$)/.test(trimmed)) {
+      current = 'intermediate';
+      continue;
+    }
+    if (/^##\s*(上級|③)(\s|$)/.test(trimmed)) {
+      current = 'advanced';
       continue;
     }
     if (current) buf[current].push(line);

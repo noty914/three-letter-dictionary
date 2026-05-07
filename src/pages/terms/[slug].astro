@@ -95,14 +95,14 @@ const enSegments = buildEnglishTitleSegments(entry.data.titleEn, termSlug(entry.
 
       <section class="primary-block" aria-labelledby="primary-heading">
         <h2 id="primary-heading" class="page-title" style="font-size: 1.15rem;">
-          初級（①）
+          ① 非エンジニア向けのざっくり概要
         </h2>
         {
           tiers.primary ? (
             <MarkdownHtml markdown={tiers.primary} />
           ) : (
             <p class="lede">
-              本文に <code>## 初級</code> 見出しがありません。{' '}
+              本文に <code>## ① 非エンジニア向けのざっくり概要</code> または <code>## 初級</code> 見出しがありません。{' '}
               <code>src/content/terms/{entry.id}</code> を確認してください。
             </p>
           )
