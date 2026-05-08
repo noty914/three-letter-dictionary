@@ -229,8 +229,9 @@ a:hover {
   box-shadow: var(--card-hover-shadow, 0 4px 24px rgba(0, 0, 0, 0.06));
 }
 
-/* 用語カード：頭文字に対応する A–Z 色の左アクセント */
-.term-card__link--accent {
+/* 用語カード：頭文字に対応する A–Z 色の左アクセント
+   （.card-list a の border ショートハンドより特異性を上げる） */
+.card-list a.term-card__link--accent {
   border-left: 3px solid var(--term-accent, var(--border));
 }
 
@@ -518,26 +519,6 @@ details.term-tier[data-tier='intermediate'] .markdown-body hr {
   background: var(--alphabet-strip-bg);
   border-bottom: 1px solid var(--alphabet-strip-border);
   padding: 1rem 0 1.25rem;
-}
-
-/* /letter/x/ 一覧エリア：ブロックで囲む（背景はフラット） */
-.letter-results--accent {
-  margin-top: 0.35rem;
-  padding: 0.85rem 1rem 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.letter-results__meta {
-  margin-top: 0;
-  margin-bottom: 0.65rem;
-}
-
-.letter-results__empty {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 .alphabet-strip .label {

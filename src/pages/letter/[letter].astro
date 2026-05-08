@@ -36,36 +36,32 @@ const azKey = /^[A-Z]$/.test(letterUpper) ? letterUpper : null;
         )
       }
     </h1>
-    <div class:list={['letter-results', azKey && 'letter-results--accent']}>
-      <p class="lede letter-results__meta">該当 {terms.length} 件</p>
-      {
-        terms.length === 0 ? (
-          <p class="letter-results__empty">
-            まだこの文字では登録がありません。別の文字を選ぶか、用語を追加してください。
-          </p>
-        ) : (
-          <ul class="card-list">
-            {terms.map((t) => {
-              const slug = termSlug(t.id);
-              const cardAz = azKeyFromSlug(slug);
-              return (
-                <li>
-                  <a
-                    class:list={['term-card__link', cardAz && 'term-card__link--accent']}
-                    style={cardAz ? `--term-accent: var(--az-${cardAz});` : undefined}
-                    href={withBase(`terms/${slug}/`)}
-                  >
-                    <span class="term-card__line">
-                      <strong class="term-card__abbr">{t.data.titleJa}</strong>
-                      <span class="term-card__en">（{t.data.titleEn}）</span>
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        )
-      }
-    </div>
+    <p class="lede">該当 {terms.length} 件</p>
+    {
+      terms.length === 0 ? (
+        <p class="lede">まだこの文字では登録がありません。別の文字を選ぶか、用語を追加してください。</p>
+      ) : (
+        <ul class="card-list">
+          {terms.map((t) => {
+            const slug = termSlug(t.id);
+            const cardAz = azKeyFromSlug(slug);
+            return (
+              <li>
+                <a
+                  class:list={['term-card__link', cardAz && 'term-card__link--accent']}
+                  style={cardAz ? `--term-accent: var(--az-${cardAz});` : undefined}
+                  href={withBase(`terms/${slug}/`)}
+                >
+                  <span class="term-card__line">
+                    <strong class="term-card__abbr">{t.data.titleJa}</strong>
+                    <span class="term-card__en">（{t.data.titleEn}）</span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
   </main>
 </BaseLayout>
