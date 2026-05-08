@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "sync:related": "node scripts/sync-related.mjs",
+    "predev": "npm run sync:related",
+    "prebuild": "npm run sync:related",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
