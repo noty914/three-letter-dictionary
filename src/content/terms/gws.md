@@ -2,7 +2,7 @@
 titleJa: GWS
 titleEn: Google Workspace
 tags: [クラウド]
-related: [gcp, dns]
+related: [dns, gcp]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
@@ -31,6 +31,5 @@ Gmail、カレンダー、Drive などをまとめて使える業務向けサー
 
 - 公式サイト/公式ドキュメント:
   - [Google Workspace 管理者ヘルプ](https://support.google.com/a/)
-- 公式仕様・機能ガイド:
   - [Google Workspace セキュリティ設定](https://support.google.com/a/topic/7556650)
   - [Google Vault ヘルプ](https://support.google.com/vault/)

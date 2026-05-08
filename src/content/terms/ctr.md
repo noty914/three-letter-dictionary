@@ -2,7 +2,7 @@
 titleJa: CTR
 titleEn: Click Through Rate
 tags: [データ]
-related: [cvr, cta, roi]
+related: [cta, cvr, roi, seo]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

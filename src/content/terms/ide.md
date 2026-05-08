@@ -2,7 +2,7 @@
 titleJa: IDE
 titleEn: Integrated Development Environment
 tags: [開発]
-related: [cli, api]
+related: [api, app, cli, gui]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
@@ -23,16 +23,5 @@ IDE は、コード編集・実行・デバッグを1つの環境で行う仕組
 
 ## ③ もっと知りたい人向け
 
-### アーキ設計
-ローカル開発とリモート開発（Container/SSH）の使い分けを決め、開発環境を再現可能な形で定義します。拡張機能の採用基準も設けます。
-
-### 運用設計
-設定配布、拡張更新、フォーマット/Lint統一、開発端末ポリシーを運用ルール化します。新規参加者向けオンボーディング手順が重要です。
-
-### 障害/変更時の論点
-詰まりやすいのは、拡張競合、バージョン差異、リモート接続不安定化です。アップデート時の検証環境とロールバック手順が必要です。
-
-### これで実際にできること
-- 開発環境の立ち上げ時間を短縮できる
-- チーム全体でコード品質ルールを統一できる
-- 環境差分による不具合再現難を減らせる
+- 公式サイト/公式ドキュメント:
+  - [Google検索: Integrated Development Environment official documentation](https://www.google.com/search?q=Integrated+Development+Environment+official+documentation)

@@ -2,7 +2,7 @@
 titleJa: CTA
 titleEn: Call To Action
 tags: [業務運用, データ]
-related: [cvr, ctr]
+related: [ctr, cvr, seo]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

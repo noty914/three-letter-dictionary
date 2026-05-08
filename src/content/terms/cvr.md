@@ -2,7 +2,7 @@
 titleJa: CVR
 titleEn: Conversion Rate
 tags: [データ]
-related: [ctr, cta, roi]
+related: [ctr, cta, roi, seo]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
