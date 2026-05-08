@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { termSlug } from '@/lib/term-id';
+import { azKeyFromSlug, termSlug } from '@/lib/term-id';
 import { collectAllTags, paramToTag, tagToParam } from '@/lib/tags';
 import { withBase } from '@/lib/base-path';
 
@@ -43,16 +43,24 @@ const title = `タグ「${rawTag}」の用語`;
         <p>このタグの用語はありません。</p>
       ) : (
         <ul class="card-list">
-          {terms.map((t) => (
-            <li>
-              <a class="term-card__link" href={withBase(`terms/${termSlug(t.id)}/`)}>
-                <span class="term-card__line">
-                  <strong class="term-card__abbr">{t.data.titleJa}</strong>
-                  <span class="term-card__en">（{t.data.titleEn}）</span>
-                </span>
-              </a>
-            </li>
-          ))}
+          {terms.map((t) => {
+            const slug = termSlug(t.id);
+            const cardAz = azKeyFromSlug(slug);
+            return (
+              <li>
+                <a
+                  class:list={['term-card__link', cardAz && 'term-card__link--accent']}
+                  style={cardAz ? `--term-accent: var(--az-${cardAz});` : undefined}
+                  href={withBase(`terms/${slug}/`)}
+                >
+                  <span class="term-card__line">
+                    <strong class="term-card__abbr">{t.data.titleJa}</strong>
+                    <span class="term-card__en">（{t.data.titleEn}）</span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       )
     }

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { termSlug } from '@/lib/term-id';
+import { azKeyFromSlug, termSlug } from '@/lib/term-id';
 import { withBase } from '@/lib/base-path';
 import {
   SITE_DESCRIPTION,
@@ -27,10 +27,14 @@ function searchBlob(t: (typeof terms)[number]): string {
 ---
 
 <BaseLayout title={SITE_NAME} description={SITE_DESCRIPTION}>
+  <div slot="before-alphabet" class="home-intro">
+    <div class="home-intro__inner">
+      <p class="home-intro__line" set:html={SITE_LEDE_PRIMARY} />
+      <p class="home-intro__line" set:html={SITE_LEDE_SECOND} />
+    </div>
+  </div>
   <main class="container">
     <h1 class="page-title">{SITE_NAME}</h1>
-    <p class="lede" set:html={SITE_LEDE_PRIMARY}></p>
-    <p class="lede" set:html={SITE_LEDE_SECOND}></p>
 
     <form class="term-search-form" role="search" aria-label="用語検索">
       <label for="term-search">用語を検索</label>
@@ -50,16 +54,24 @@ function searchBlob(t: (typeof terms)[number]): string {
     <h2 class="page-title" style="font-size: 1.2rem; margin-top: 2rem;">用語一覧</h2>
     <ul id="term-list" class="card-list">
       {
-        terms.map((t) => (
-          <li data-search={searchBlob(t)}>
-            <a class="term-card__link" href={withBase(`terms/${termSlug(t.id)}/`)}>
-              <span class="term-card__line">
-                <strong class="term-card__abbr">{t.data.titleJa}</strong>
-                <span class="term-card__en">（{t.data.titleEn}）</span>
-              </span>
-            </a>
-          </li>
-        ))
+        terms.map((t) => {
+          const slug = termSlug(t.id);
+          const cardAz = azKeyFromSlug(slug);
+          return (
+            <li data-search={searchBlob(t)}>
+              <a
+                class:list={['term-card__link', cardAz && 'term-card__link--accent']}
+                style={cardAz ? `--term-accent: var(--az-${cardAz});` : undefined}
+                href={withBase(`terms/${slug}/`)}
+              >
+                <span class="term-card__line">
+                  <strong class="term-card__abbr">{t.data.titleJa}</strong>
+                  <span class="term-card__en">（{t.data.titleEn}）</span>
+                </span>
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
   </main>

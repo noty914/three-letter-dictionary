@@ -229,6 +229,11 @@ a:hover {
   box-shadow: var(--card-hover-shadow, 0 4px 24px rgba(0, 0, 0, 0.06));
 }
 
+/* 用語カード：頭文字に対応する A–Z 色の左アクセント */
+.term-card__link--accent {
+  border-left: 3px solid var(--term-accent, var(--border));
+}
+
 /* 用語カード内の英語副題（1行寄せ・旧 .meta は廃止） */
 
 .tag-pill {
@@ -334,8 +339,8 @@ html[data-theme='dark'] .tag-pill:hover {
   margin: 0;
 }
 
-/* アコーディオン（②③） */
-details.term-tier {
+/* ①②③ 共通のカード枠（①は開閉なし `.term-tier--static`） */
+.term-tier {
   margin: 1rem 0;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -358,8 +363,21 @@ details.term-tier[open] summary {
   border-bottom: 1px solid var(--border);
 }
 
+.term-tier--static .tier-heading {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.45;
+  border-bottom: 1px solid var(--border);
+}
+
 .tier-body {
   padding: 0 1rem 1rem;
+}
+
+.tier-body > .markdown-body:first-child > :first-child {
+  margin-top: 0;
 }
 
 /* 開いた先に差し込む広告プレースホルダー */
@@ -375,11 +393,6 @@ details.term-tier[open] summary {
     --ad-slot-bg,
     linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%)
   );
-}
-
-.primary-block {
-  margin-top: 1rem;
-  padding: 1rem 0;
 }
 
 .markdown-body h2 {
@@ -479,10 +492,52 @@ details.term-tier[data-tier='intermediate'] .markdown-body hr {
   color: var(--link-hover, var(--link));
 }
 
+.home-intro {
+  border-bottom: 1px solid var(--alphabet-strip-border);
+  background: var(--surface);
+}
+
+.home-intro__inner {
+  width: min(960px, calc(100% - 2rem));
+  margin-inline: auto;
+  padding: 0.4rem 0 0.5rem;
+}
+
+.home-intro__line {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.home-intro__line:last-child {
+  margin-bottom: 0;
+}
+
 .alphabet-strip {
   background: var(--alphabet-strip-bg);
   border-bottom: 1px solid var(--alphabet-strip-border);
   padding: 1rem 0 1.25rem;
+}
+
+/* /letter/x/ 一覧エリア：ブロックで囲む（背景はフラット） */
+.letter-results--accent {
+  margin-top: 0.35rem;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.letter-results__meta {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+}
+
+.letter-results__empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .alphabet-strip .label {

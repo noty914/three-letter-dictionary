@@ -86,6 +86,7 @@ const useGa = Boolean(gaId);
         </div>
       </div>
     </header>
+    <slot name="before-alphabet" />
     <AlphabetNav activeLetter={activeLetter} />
     <slot />
     <footer class="site-footer">
