@@ -1,7 +1,7 @@
 ---
 titleJa: FAQ
 titleEn: Frequently Asked Questions
-tags: [業務]
+tags: [業務運用]
 related: [crm, uat]
 ---
 

@@ -1,7 +1,7 @@
 ---
 titleJa: CRM
 titleEn: Customer Relationship Management
-tags: [業務]
+tags: [業務システム]
 related: [erp, faq]
 ---
 

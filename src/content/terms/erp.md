@@ -1,7 +1,7 @@
 ---
 titleJa: ERP
 titleEn: Enterprise Resource Planning
-tags: [業務]
+tags: [業務システム]
 related: [crm, rpa]
 ---
 
