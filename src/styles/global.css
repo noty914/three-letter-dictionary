@@ -49,16 +49,17 @@ html {
   --alphabet-strip-bg: #f1f3f5;
   --alphabet-strip-border: #e8eaed;
   --alphabet-label-color: #6b7280;
-  --az-link-cell-bg: #ffffff;
-  --az-link-cell-bg-hover: #f8f9fa;
-  --az-link-cell-border: #e8eaed;
-  --az-link-active-outline: rgba(0, 0, 0, 0.14);
-  /* A–Z：キー天面のベベル（文字には影を付けない） */
-  --az-key-inset-top: inset 0 1px 0 rgba(255, 255, 255, 0.92);
-  --az-key-inset-bottom: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
-  --az-key-ambient: 0 1px 0 rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.05);
-  --az-key-ambient-hover: 0 1px 1px rgba(0, 0, 0, 0.08);
-  --az-key-border-bottom: #d4d8e0;
+  /* ライト：純白＋黒寄りの影は安っぽく見えやすいので、わずかな灰グラデ＋紺みの淡い影 */
+  --az-link-cell-bg: linear-gradient(180deg, #fdfefe 0%, #f0f2f6 100%);
+  --az-link-cell-bg-hover: linear-gradient(180deg, #f6f8fb 0%, #e8ecf2 100%);
+  --az-link-cell-border: rgba(15, 23, 42, 0.08);
+  --az-link-active-outline: rgba(15, 23, 42, 0.12);
+  /* A–Z：キー天面（文字には影を付けない） */
+  --az-key-inset-top: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  --az-key-inset-bottom: inset 0 -1px 0 rgba(15, 23, 42, 0.045);
+  --az-key-ambient: 0 1px 1px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.035);
+  --az-key-ambient-hover: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --az-key-border-bottom: rgba(15, 23, 42, 0.12);
   --card-hover-border: #d4d4d4;
   --card-hover-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   --related-hover-border: #d4d4d4;
@@ -712,7 +713,7 @@ details.term-tier[data-tier='intermediate'] .markdown-body hr {
     'Helvetica Neue',
     Arial,
     sans-serif;
-  border-radius: 7px;
+  border-radius: 8px;
   text-decoration: none;
   color: inherit;
   background: var(--az-link-cell-bg);
