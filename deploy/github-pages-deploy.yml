@@ -33,6 +33,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           PUBLIC_GA_MEASUREMENT_ID: ${{ vars.PUBLIC_GA_MEASUREMENT_ID }}
+          # 独自ドメイン等で canonical / sitemap を明示したいときに Repository variables で設定（未設定なら従来どおり）
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
