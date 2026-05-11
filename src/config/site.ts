@@ -22,4 +22,4 @@ export const SITE_FOOTER = `${SITE_NAME} · static site`;
 
 /** A–Z 索引帯の見た目。`a` = キー風（既定）、`b` = フラットカード＋軽い浮き */
 export type AlphabetNavVariant = 'a' | 'b';
-export const ALPHABET_NAV_VARIANT: AlphabetNavVariant = 'a';
+export const ALPHABET_NAV_VARIANT: AlphabetNavVariant = 'b';
