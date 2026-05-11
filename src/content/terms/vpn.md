@@ -24,5 +24,5 @@ SSO や TLS と似ていますが、VPN は「経路」を守る仕組み、SSO 
 
 ## ③ もっと知りたい人向け
 
-- 公式サイト/公式ドキュメント:
-  - [Google検索: Virtual Private Network official documentation](https://www.google.com/search?q=Virtual+Private+Network+official+documentation)
+- 公式サイト/公式ドキュメント: [Google検索: Virtual Private Network official documentation](https://www.google.com/search?q=Virtual+Private+Network+official+documentation)
+

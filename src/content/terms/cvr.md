@@ -25,11 +25,11 @@ related: [ctr, cta, roi, seo, ltv]
   - 効果の低いページや施策を早く見直せる
   - 改善施策の成果を定量で説明できる
 
-- よくある誤解｜似た用語との差分:
-  - CTRと似ていますが、CVRが高くても流入数が少ないと成果総数は伸びないため、流入量とセットで見る必要がある。
+- よくある誤解｜似た用語との差分: CTRと似ていますが、CVRが高くても流入数が少ないと成果総数は伸びないため、流入量とセットで見る必要がある。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Google Analytics Help](https://support.google.com/analytics/)
   - [Google Ads コンバージョン計測](https://support.google.com/google-ads/topic/3165803)
+

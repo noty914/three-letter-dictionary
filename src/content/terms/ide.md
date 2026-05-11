@@ -24,5 +24,5 @@ IDE は、コード編集・実行・デバッグを1つの環境で行う仕組
 
 ## ③ もっと知りたい人向け
 
-- 公式サイト/公式ドキュメント:
-  - [Google検索: Integrated Development Environment official documentation](https://www.google.com/search?q=Integrated+Development+Environment+official+documentation)
+- 公式サイト/公式ドキュメント: [Google検索: Integrated Development Environment official documentation](https://www.google.com/search?q=Integrated+Development+Environment+official+documentation)
+

@@ -34,3 +34,4 @@ related: [cvr, ctr, roi]
   - [Google検索: Customer Lifetime Value official documentation](https://www.google.com/search?q=Customer+Lifetime+Value+official+documentation)
   - [HubSpot: Customer Lifetime Value (CLV)](https://blog.hubspot.com/service/grow-customer-lifetime-value)
   - [Shopify: Customer Lifetime Value (LTV)](https://www.shopify.com/blog/customer-lifetime-value)
+

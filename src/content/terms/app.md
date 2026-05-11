@@ -25,11 +25,11 @@ related: [api, gui, ide]
   - 業務手順のデジタル化を進められる
   - 継続改善でサービス価値を高められる
 
-- よくある誤解｜似た用語との差分:
-  - スマホアプリと似て語られますが、AppはWebアプリやデスクトップアプリも含む広い概念。
+- よくある誤解｜似た用語との差分: スマホアプリと似て語られますが、AppはWebアプリやデスクトップアプリも含む広い概念。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Apple Developer Documentation](https://developer.apple.com/documentation/)
   - [Android Developers](https://developer.android.com/docs?hl=ja)
+

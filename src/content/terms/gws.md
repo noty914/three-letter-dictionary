@@ -25,8 +25,7 @@ Gmail、カレンダー、Drive などをまとめて使える業務向けサー
   - メール/ファイルの運用ルールを全社でそろえられる
   - 操作ログを使って監査対応をしやすくできる
 
-- よくある誤解｜似た用語との差分:
-  - GCPと似ていますが、GWSは業務ツール基盤、GCPは開発/インフラ基盤。
+- よくある誤解｜似た用語との差分: GCPと似ていますが、GWSは業務ツール基盤、GCPは開発/インフラ基盤。
 
 ## ③ もっと知りたい人向け
 
@@ -34,3 +33,4 @@ Gmail、カレンダー、Drive などをまとめて使える業務向けサー
   - [Google Workspace 管理者ヘルプ](https://support.google.com/a/)
   - [Google Workspace セキュリティ設定](https://support.google.com/a/topic/7556650)
   - [Google Vault ヘルプ](https://support.google.com/vault/)
+

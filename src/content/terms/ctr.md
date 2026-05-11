@@ -25,11 +25,11 @@ related: [cta, cvr, roi, seo, ltv]
   - 低反応クリエイティブを早期に差し替えできる
   - 集客効率の改善スピードを上げられる
 
-- よくある誤解｜似た用語との差分:
-  - CVRと似ていますが、CTRが高くても購入や申込につながらないことがあるため、両方をセットで評価する必要がある。
+- よくある誤解｜似た用語との差分: CVRと似ていますが、CTRが高くても購入や申込につながらないことがあるため、両方をセットで評価する必要がある。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Google Ads ヘルプ](https://support.google.com/google-ads/)
   - [Search Console ヘルプ](https://support.google.com/webmasters/)
+

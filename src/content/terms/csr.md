@@ -34,3 +34,4 @@ related: [kpi, nda]
   - [ISO 26000（社会的責任）概要](https://www.iso.org/iso-26000-social-responsibility.html)
   - [GRI Standards](https://www.globalreporting.org/standards/)
   - [UN Global Compact](https://unglobalcompact.org/)
+

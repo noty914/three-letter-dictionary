@@ -25,11 +25,11 @@ related: [ctr, cta, cvr, geo]
   - 広告費依存を下げられる
   - コンテンツ改善の優先順位を決めやすくなる
 
-- よくある誤解｜似た用語との差分:
-  - キーワード調整と似ていますが、SEOは検索意図に合う情報提供を継続改善する取り組み。
+- よくある誤解｜似た用語との差分: キーワード調整と似ていますが、SEOは検索意図に合う情報提供を継続改善する取り組み。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Google 検索セントラル](https://developers.google.com/search/docs?hl=ja)
   - [Google Search Console ヘルプ](https://support.google.com/webmasters/)
+

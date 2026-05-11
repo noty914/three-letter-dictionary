@@ -25,11 +25,11 @@ related: [kpi, qcd, wbs]
   - 遅延やリスクを早めに検知できる
   - 経営報告を標準化し、判断を速くできる
 
-- よくある誤解｜似た用語との差分:
-  - PMと似ていますが、PMOはPMの代わりではなく複数案件を横断して支援・統制する役割。
+- よくある誤解｜似た用語との差分: PMと似ていますが、PMOはPMの代わりではなく複数案件を横断して支援・統制する役割。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [PMI - Project Management Institute](https://www.pmi.org/)
   - [PMBOK Guide Overview](https://www.pmi.org/pmbok-guide-standards)
+

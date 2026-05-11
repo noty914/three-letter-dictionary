@@ -25,11 +25,11 @@ AI検索やAI回答で正しく取り上げられるための整備です。
   - 誤情報拡散リスクを下げられる
   - 公式情報への導線を強化できる
 
-- よくある誤解｜似た用語との差分:
-  - SEOと似ていますが、GEOはAI回答文脈を補完するための情報設計。
+- よくある誤解｜似た用語との差分: SEOと似ていますが、GEOはAI回答文脈を補完するための情報設計。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Google 検索のAI Overviews 関連情報](https://developers.google.com/search/docs/appearance/ai-overviews?hl=ja)
   - [OpenAI Platform Docs](https://platform.openai.com/docs)
+

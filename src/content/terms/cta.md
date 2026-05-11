@@ -25,11 +25,11 @@ related: [ctr, cvr, seo]
   - 導線離脱を減らせる
   - ページ成果の改善を継続できる
 
-- よくある誤解｜似た用語との差分:
-  - ボタン装飾と似て見えますが、CTAは文言・配置・表示タイミングまで含む設計要素。
+- よくある誤解｜似た用語との差分: ボタン装飾と似て見えますが、CTAは文言・配置・表示タイミングまで含む設計要素。
 
 ## ③ もっと知りたい人向け
 
 - 公式サイト/公式ドキュメント:
   - [Google UX Design Guidelines](https://developer.android.com/design)
   - [Nielsen Norman Group](https://www.nngroup.com/)
+

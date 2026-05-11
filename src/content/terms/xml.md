@@ -24,5 +24,5 @@ JSON と似ていますが、JSON は軽量で扱いやすく、XML は構造検
 
 ## ③ もっと知りたい人向け
 
-- 公式サイト/公式ドキュメント:
-  - [Google検索: Extensible Markup Language official documentation](https://www.google.com/search?q=Extensible+Markup+Language+official+documentation)
+- 公式サイト/公式ドキュメント: [Google検索: Extensible Markup Language official documentation](https://www.google.com/search?q=Extensible+Markup+Language+official+documentation)
+

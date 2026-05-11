@@ -24,5 +24,5 @@ GUI と似ていますが、CLI は文字入力で高速・自動化向き、GUI
 
 ## ③ もっと知りたい人向け
 
-- 公式サイト/公式ドキュメント:
-  - [Google検索: Command Line Interface official documentation](https://www.google.com/search?q=Command+Line+Interface+official+documentation)
+- 公式サイト/公式ドキュメント: [Google検索: Command Line Interface official documentation](https://www.google.com/search?q=Command+Line+Interface+official+documentation)
+
