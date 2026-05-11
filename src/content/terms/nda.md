@@ -1,6 +1,7 @@
 ---
 titleJa: NDA
 titleEn: Non-Disclosure Agreement
+titleEnJa: 秘密保持契約
 tags: [法務]
 related: [bcp, rfp, csr]
 ---

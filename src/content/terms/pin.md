@@ -1,6 +1,7 @@
 ---
 titleJa: PIN
 titleEn: Personal Identification Number
+titleEnJa: 個人識別番号
 tags: [セキュリティ]
 related: [mfa, vpn]
 ---

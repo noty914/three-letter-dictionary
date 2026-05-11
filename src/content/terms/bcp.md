@@ -1,6 +1,7 @@
 ---
 titleJa: BCP
 titleEn: Business Continuity Plan
+titleEnJa: 事業継続計画
 tags: [経営]
 related: [erp, nda]
 ---

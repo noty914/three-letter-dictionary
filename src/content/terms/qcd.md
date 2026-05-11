@@ -1,6 +1,7 @@
 ---
 titleJa: QCD
 titleEn: Quality, Cost, Delivery
+titleEnJa: 品質・コスト・納期
 tags: [経営]
 related: [pmo, roi, wbs]
 ---

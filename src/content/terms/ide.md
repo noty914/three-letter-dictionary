@@ -1,6 +1,7 @@
 ---
 titleJa: IDE
 titleEn: Integrated Development Environment
+titleEnJa: 統合開発環境
 tags: [開発]
 related: [api, app, cli, gui]
 ---

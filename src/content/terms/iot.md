@@ -1,6 +1,7 @@
 ---
 titleJa: IoT
 titleEn: Internet of Things
+titleEnJa: モノのインターネット
 tags: [ネットワーク]
 related: [api, dns]
 ---

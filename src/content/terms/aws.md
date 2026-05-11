@@ -1,6 +1,7 @@
 ---
 titleJa: AWS
 titleEn: Amazon Web Services
+titleEnJa: アマゾン・ウェブ・サービス
 tags: [クラウド]
 related: [api, gcp]
 ---

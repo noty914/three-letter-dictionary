@@ -1,6 +1,7 @@
 ---
 titleJa: MFA
 titleEn: Multi-Factor Authentication
+titleEnJa: 多要素認証
 tags: [セキュリティ]
 related: [iam, pin, sso]
 ---

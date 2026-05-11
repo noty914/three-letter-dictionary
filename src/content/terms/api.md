@@ -1,6 +1,7 @@
 ---
 titleJa: API
 titleEn: Application Programming Interface
+titleEnJa: アプリケーション・プログラミング・インタフェース
 tags: [開発]
 related: [app, aws, csv, dns, ide, iot, llm, mcp, rpa, sql, xml]
 ---

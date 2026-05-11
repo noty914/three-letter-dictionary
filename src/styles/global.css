@@ -608,16 +608,20 @@ footer.site-footer {
   margin-top: 1.75rem;
 }
 
-/* 詳細: 英語正式名の先頭3語の頭文字（インデックスと同色） */
+/* 詳細: 英語正式名（頭文字は太字・大）。続けて（和訳） */
 .title-en-line {
   margin: 0 0 1.5rem;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.title-en-line .title-en__english {
   color: var(--muted);
 }
 
 .title-en-line .title-en__plain {
-  color: var(--muted);
+  color: inherit;
   font-weight: 500;
 }
 
@@ -629,6 +633,7 @@ footer.site-footer {
   letter-spacing: -0.04em;
   line-height: 1;
   vertical-align: -0.08em;
+  color: inherit;
   font-family:
     'Segoe UI',
     system-ui,
@@ -636,6 +641,12 @@ footer.site-footer {
     'Helvetica Neue',
     Arial,
     sans-serif;
+}
+
+.title-en-line .title-en__gloss {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 /* TOP: 用語検索 */

@@ -1,6 +1,7 @@
 ---
 titleJa: KSF
 titleEn: Key Success Factor
+titleEnJa: 重要成功要因
 tags: [経営]
 related: [kgi, kpi]
 ---

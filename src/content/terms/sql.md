@@ -1,6 +1,7 @@
 ---
 titleJa: SQL
 titleEn: Structured Query Language
+titleEnJa: 構造化問い合わせ言語
 tags: [データ]
 related: [api, csv, rag]
 ---

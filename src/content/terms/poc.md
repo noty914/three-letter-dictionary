@@ -1,6 +1,7 @@
 ---
 titleJa: POC
 titleEn: Proof of Concept
+titleEnJa: 概念実証
 tags: [プロジェクト]
 related: [mvp, rfp]
 ---

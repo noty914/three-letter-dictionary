@@ -1,6 +1,7 @@
 ---
 titleJa: MVP
 titleEn: Minimum Viable Product
+titleEnJa: 実用最小限の製品
 tags: [プロジェクト]
 related: [poc, uat, wbs]
 ---

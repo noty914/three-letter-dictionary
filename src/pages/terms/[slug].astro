@@ -41,7 +41,7 @@ if (broken.length > 0) {
 const letter = termSlug(entry.id)[0]?.toLowerCase() ?? undefined;
 /** 検索結果・ブラウザタブ向け（「〇〇とは？」形式。サイト名は BaseLayout が付与） */
 const pageTitle = `${entry.data.titleJa}とは？`;
-const description = `「${entry.data.titleJa}」とは？ ${entry.data.titleEn}。①ざっくり概要・②ちょっと詳しく・③もっと知りたい人向けで解説。${SITE_NAME}。`;
+const description = `「${entry.data.titleJa}」とは？ ${entry.data.titleEn}（${entry.data.titleEnJa}）。①ざっくり概要・②ちょっと詳しく・③もっと知りたい人向けで解説。${SITE_NAME}。`;
 const enSegments = buildEnglishTitleSegments(entry.data.titleEn, termSlug(entry.id));
 ---
 
@@ -53,29 +53,36 @@ const enSegments = buildEnglishTitleSegments(entry.data.titleEn, termSlug(entry.
         enSegments ? (
           <p
             class="title-en-line"
-            lang="en"
-            aria-label={entry.data.titleEn}
+            aria-label={`${entry.data.titleEn}（${entry.data.titleEnJa}）`}
           >
-            <span aria-hidden="true">
+            <span class="title-en__english" lang="en" aria-hidden="true">
               {
                 enSegments.map((seg) =>
                   seg.type === 'text' ? (
                     <span class="title-en__plain">{seg.text}</span>
                   ) : (
-                    <span
-                      class="title-en__initial"
-                      style={`color: var(--az-${seg.letter});`}
-                    >
-                      {seg.letter}
-                    </span>
+                    <span class="title-en__initial">{seg.letter}</span>
                   ),
                 )
               }
             </span>
+            <span class="title-en__gloss" lang="ja" aria-hidden="true">
+              {' '}
+              （{entry.data.titleEnJa}）
+            </span>
           </p>
         ) : (
-          <p class="title-en-line" lang="en">
-            {entry.data.titleEn}
+          <p
+            class="title-en-line"
+            aria-label={`${entry.data.titleEn}（${entry.data.titleEnJa}）`}
+          >
+            <span class="title-en__english" lang="en" aria-hidden="true">
+              {entry.data.titleEn}
+            </span>
+            <span class="title-en__gloss" lang="ja" aria-hidden="true">
+              {' '}
+              （{entry.data.titleEnJa}）
+            </span>
           </p>
         )
       }

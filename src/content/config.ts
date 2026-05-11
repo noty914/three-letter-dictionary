@@ -9,6 +9,8 @@ const terms = defineCollection({
   schema: z.object({
     titleJa: z.string(),
     titleEn: z.string(),
+    /** 正式英語名のあとに（）で付ける和訳・説明 */
+    titleEnJa: z.string(),
     tags: z.array(z.string()).default([]),
     related: z.array(z.string()).default([]),
   }),

@@ -1,6 +1,7 @@
 ---
 titleJa: GUI
 titleEn: Graphical User Interface
+titleEnJa: グラフィカル・ユーザー・インタフェース
 tags: [開発]
 related: [app, cli, ide]
 ---

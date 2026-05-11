@@ -1,6 +1,7 @@
 ---
 titleJa: GWS
 titleEn: Google Workspace
+titleEnJa: グーグル・ワークスペース
 tags: [クラウド]
 related: [dns, gcp]
 ---

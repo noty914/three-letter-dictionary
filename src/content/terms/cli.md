@@ -1,6 +1,7 @@
 ---
 titleJa: CLI
 titleEn: Command Line Interface
+titleEnJa: コマンドライン・インタフェース
 tags: [開発]
 related: [gui, ide]
 ---

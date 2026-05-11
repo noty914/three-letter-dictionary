@@ -1,6 +1,7 @@
 ---
 titleJa: ROI
 titleEn: Return on Investment
+titleEnJa: 投資対効果
 tags: [経営]
 related: [ctr, cvr, kpi, qcd, rfp, ltv]
 ---

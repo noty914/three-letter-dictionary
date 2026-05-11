@@ -1,6 +1,7 @@
 ---
 titleJa: PMO
 titleEn: Project Management Office
+titleEnJa: プロジェクト管理オフィス
 tags: [プロジェクト]
 related: [kpi, qcd, wbs]
 ---

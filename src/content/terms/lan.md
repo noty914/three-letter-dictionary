@@ -1,6 +1,7 @@
 ---
 titleJa: LAN
 titleEn: Local Area Network
+titleEnJa: ローカルエリア・ネットワーク
 tags: [ネットワーク]
 related: [dns, vpn]
 ---

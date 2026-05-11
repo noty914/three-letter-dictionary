@@ -1,6 +1,7 @@
 ---
 titleJa: WWW
 titleEn: World Wide Web
+titleEnJa: ワールド・ワイド・ウェブ
 tags: [ネットワーク]
 related: [dns]
 ---

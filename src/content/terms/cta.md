@@ -1,6 +1,7 @@
 ---
 titleJa: CTA
 titleEn: Call To Action
+titleEnJa: 行動喚起
 tags: [業務運用, データ]
 related: [ctr, cvr, seo]
 ---

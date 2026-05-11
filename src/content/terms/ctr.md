@@ -1,6 +1,7 @@
 ---
 titleJa: CTR
 titleEn: Click Through Rate
+titleEnJa: クリックスルー率
 tags: [データ]
 related: [cta, cvr, roi, seo, ltv]
 ---

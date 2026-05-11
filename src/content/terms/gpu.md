@@ -1,6 +1,7 @@
 ---
 titleJa: GPU
 titleEn: Graphics Processing Unit
+titleEnJa: 画像処理装置
 tags: [AI]
 related: [cpu, llm]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: SSO
 titleEn: Single Sign-On
+titleEnJa: シングルサインオン
 tags: [セキュリティ]
 related: [dns, iam, mfa]
 ---

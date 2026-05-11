@@ -1,6 +1,7 @@
 ---
 titleJa: CSV
 titleEn: Comma-Separated Values
+titleEnJa: カンマ区切り値
 tags: [データ]
 related: [api, sql, xml, zip]
 ---

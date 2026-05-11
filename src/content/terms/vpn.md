@@ -1,6 +1,7 @@
 ---
 titleJa: VPN
 titleEn: Virtual Private Network
+titleEnJa: 仮想プライベート・ネットワーク
 tags: [ネットワーク, セキュリティ]
 related: [lan, pin, tls]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: ERP
 titleEn: Enterprise Resource Planning
+titleEnJa: 企業資源計画
 tags: [業務システム]
 related: [bcp, crm, rpa]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: CSR
 titleEn: Corporate Social Responsibility
+titleEnJa: 企業の社会的責任
 tags: [経営, 業務運用]
 related: [kpi, nda]
 ---

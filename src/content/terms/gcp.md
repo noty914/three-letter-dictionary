@@ -1,6 +1,7 @@
 ---
 titleJa: GCP
 titleEn: Google Cloud Platform
+titleEnJa: グーグル・クラウド・プラットフォーム
 tags: [クラウド]
 related: [aws, gws]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: WBS
 titleEn: Work Breakdown Structure
+titleEnJa: 作業分解構成
 tags: [プロジェクト]
 related: [mvp, pmo, qcd]
 ---

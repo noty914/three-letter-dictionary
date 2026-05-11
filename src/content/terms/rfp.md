@@ -1,6 +1,7 @@
 ---
 titleJa: RFP
 titleEn: Request for Proposal
+titleEnJa: 提案依頼書
 tags: [プロジェクト]
 related: [nda, poc, roi]
 ---

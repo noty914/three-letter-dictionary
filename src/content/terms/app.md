@@ -1,6 +1,7 @@
 ---
 titleJa: App
 titleEn: Application
+titleEnJa: アプリケーション
 tags: [開発]
 related: [api, gui, ide]
 ---

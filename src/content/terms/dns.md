@@ -1,6 +1,7 @@
 ---
 titleJa: DNS
 titleEn: Domain Name System
+titleEnJa: ドメイン名システム
 tags: [ネットワーク]
 related: [api, gws, iot, lan, sso, tls, www, zip]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: KGI
 titleEn: Key Goal Indicator
+titleEnJa: 重要目標指標
 tags: [経営]
 related: [kpi, ksf]
 ---

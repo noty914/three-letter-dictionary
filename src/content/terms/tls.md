@@ -1,6 +1,7 @@
 ---
 titleJa: TLS
 titleEn: Transport Layer Security
+titleEnJa: トランスポート層セキュリティ
 tags: [セキュリティ]
 related: [dns, vpn]
 ---

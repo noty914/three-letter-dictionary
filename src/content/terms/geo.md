@@ -1,6 +1,7 @@
 ---
 titleJa: GEO
 titleEn: Generative Engine Optimization
+titleEnJa: 生成エンジン最適化
 tags: [AI, データ]
 related: [llm, rag, seo]
 ---

@@ -1,6 +1,7 @@
 ---
 titleJa: CPU
 titleEn: Central Processing Unit
+titleEnJa: 中央処理装置
 tags: [開発]
 related: [gpu, llm]
 ---

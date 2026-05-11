@@ -1,6 +1,7 @@
 ---
 titleJa: ZIP
 titleEn: ZIP archive format
+titleEnJa: ZIP アーカイブ形式
 tags: [データ]
 related: [csv, dns]
 ---

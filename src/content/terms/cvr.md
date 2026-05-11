@@ -1,6 +1,7 @@
 ---
 titleJa: CVR
 titleEn: Conversion Rate
+titleEnJa: コンバージョン率
 tags: [データ]
 related: [ctr, cta, roi, seo, ltv]
 ---

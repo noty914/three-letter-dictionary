@@ -1,6 +1,7 @@
 ---
 titleJa: UAT
 titleEn: User Acceptance Testing
+titleEnJa: ユーザー受入テスト
 tags: [プロジェクト]
 related: [faq, mvp]
 ---

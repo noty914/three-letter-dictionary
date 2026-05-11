@@ -1,6 +1,7 @@
 ---
 titleJa: MCP
 titleEn: Model Context Protocol
+titleEnJa: モデル・コンテキスト・プロトコル
 tags: [AI, 開発]
 related: [api, llm, rag]
 ---
