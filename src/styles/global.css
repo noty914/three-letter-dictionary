@@ -543,7 +543,7 @@ details.term-tier[data-tier='intermediate'] .markdown-body hr {
   .site-header.site-header--dictionary .header-nav--index {
     grid-column: 1 / -1;
     grid-row: 2;
-    justify-self: center;
+    justify-self: start;
     transform: translateY(5px);
   }
 }
@@ -592,7 +592,7 @@ details.term-tier[data-tier='intermediate'] .markdown-body hr {
 
 @media (max-width: 520px) {
   .site-header.site-header--dictionary .brand__mark {
-    height: clamp(2.85rem, 15vmin, 3.75rem);
+    height: clamp(3.15rem, 18vmin, 4.1rem);
   }
 }
 
