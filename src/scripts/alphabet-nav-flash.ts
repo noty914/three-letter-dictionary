@@ -4,6 +4,32 @@ const FLASH_MS = 80;
 
 let navigating = false;
 
+let flashLifecycleBound = false;
+
+/** bfcache 復帰・トラックパッド戻し・タブ復帰などで DOM に残ったオーバーレイを除去 */
+function removeFlashOverlay(): void {
+  document.querySelectorAll('.letter-flash-root').forEach((el) => el.remove());
+  navigating = false;
+}
+
+function bindFlashLifecycleOnce(): void {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (flashLifecycleBound) return;
+  flashLifecycleBound = true;
+
+  window.addEventListener('pagehide', removeFlashOverlay);
+  window.addEventListener('pageshow', removeFlashOverlay);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      removeFlashOverlay();
+    }
+  });
+
+  document.addEventListener('resume', removeFlashOverlay);
+  window.addEventListener('focus', removeFlashOverlay);
+}
+
 function hexToRgba(hex: string, alpha: number): string {
   const h = hex.replace('#', '').trim();
   if (h.length === 3) {
@@ -138,6 +164,7 @@ export function initAlphabetNavFlash(): void {
 }
 
 if (typeof document !== 'undefined') {
+  bindFlashLifecycleOnce();
   const run = () => initAlphabetNavFlash();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run, { once: true });
