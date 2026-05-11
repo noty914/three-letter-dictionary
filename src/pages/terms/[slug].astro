@@ -45,7 +45,12 @@ const description = `「${entry.data.titleJa}」とは？ ${entry.data.titleEn}�
 const enSegments = buildEnglishTitleSegments(entry.data.titleEn, termSlug(entry.id));
 ---
 
-<BaseLayout title={pageTitle} description={description} activeLetter={letter}>
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  activeLetter={letter}
+  ogType="article"
+>
   <main class="container">
     <article>
       <h1 class="page-title">{entry.data.titleJa}</h1>
