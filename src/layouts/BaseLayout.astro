@@ -4,7 +4,12 @@ import AlphabetNav from '@/components/AlphabetNav.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
 import { withBase } from '@/lib/base-path';
 import { activeHeaderNav } from '@/lib/header-nav';
-import { SITE_DESCRIPTION, SITE_FOOTER, SITE_NAME } from '@/config/site';
+import {
+  ALPHABET_NAV_VARIANT,
+  SITE_DESCRIPTION,
+  SITE_FOOTER,
+  SITE_NAME,
+} from '@/config/site';
 
 interface Props {
   title: string;
@@ -26,7 +31,7 @@ const useGa = Boolean(gaId);
 ---
 
 <!doctype html>
-<html lang="ja" data-theme="dark">
+<html lang="ja" data-theme="dark" data-alphabet-style={ALPHABET_NAV_VARIANT}>
   <head>
     <meta charset="utf-8" />
     <script is:inline>

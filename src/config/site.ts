@@ -19,3 +19,7 @@ export const SITE_DESCRIPTION =
   'IT・ビジネスでよく出る3文字略語を、初級・中級・上級に分けて解説する無料の辞典サイトです。';
 
 export const SITE_FOOTER = `${SITE_NAME} · static site`;
+
+/** A–Z 索引帯の見た目。`a` = キー風（既定）、`b` = フラットカード＋軽い浮き */
+export type AlphabetNavVariant = 'a' | 'b';
+export const ALPHABET_NAV_VARIANT: AlphabetNavVariant = 'a';
