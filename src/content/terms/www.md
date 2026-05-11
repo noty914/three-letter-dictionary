@@ -3,7 +3,7 @@ titleJa: WWW
 titleEn: World Wide Web
 titleEnJa: ワールド・ワイド・ウェブ
 tags: [ネットワーク]
-related: [dns]
+related: [dns, url]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

@@ -3,7 +3,7 @@ titleJa: IAM
 titleEn: Identity and Access Management
 titleEnJa: アイデンティティとアクセスの管理
 tags: [セキュリティ]
-related: [mfa, sso]
+related: [mfa, sso, idp]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

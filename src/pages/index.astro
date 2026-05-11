@@ -3,12 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { azKeyFromSlug, termSlug } from '@/lib/term-id';
 import { withBase } from '@/lib/base-path';
-import {
-  SITE_DESCRIPTION,
-  SITE_LEDE_PRIMARY,
-  SITE_LEDE_SECOND,
-  SITE_NAME,
-} from '@/config/site';
+import { SITE_DESCRIPTION, SITE_LEDE_PRIMARY, SITE_NAME } from '@/config/site';
 
 const terms = (await getCollection('terms')).sort((a, b) =>
   termSlug(a.id).localeCompare(termSlug(b.id), 'en'),
@@ -30,7 +25,6 @@ function searchBlob(t: (typeof terms)[number]): string {
   <div slot="before-alphabet" class="home-intro">
     <div class="home-intro__inner">
       <p class="home-intro__line" set:html={SITE_LEDE_PRIMARY} />
-      <p class="home-intro__line" set:html={SITE_LEDE_SECOND} />
     </div>
   </div>
   <main class="container">

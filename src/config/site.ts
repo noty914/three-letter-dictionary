@@ -7,16 +7,13 @@
 /** サイト名（ヘッダ・フッター・検索結果の title に使用） */
 export const SITE_NAME = '3文字アルファベット辞典';
 
-/** トップのリード文（日本語のまま：読者は国内想定） */
+/** トップのリード文（`set:html` 用。改行は `<br />`） */
 export const SITE_LEDE_PRIMARY =
-  'よく使われる略語を、<strong>①初級</strong>（会議やニュースでの見え方）、<strong>②中級</strong>（仕組みの輪郭）、<strong>③上級</strong>（技術寄りのニュアンス）に分けて整理します。正式名称は英語併記です。';
-
-export const SITE_LEDE_SECOND =
-  '上部の <strong>A–Z</strong> から頭文字で絞り込み、検索、または下の一覧から用語を選んでください。';
+  '非エンジニア向けに、IT業界でよく出てくる3文字略語をまとめました。<br />職場の先輩・上司・取引先が使っていた「あの略語」を、瞬間的にモノにする参考になれば。';
 
 /** 既定の meta description（検索スニペット用・日本語） */
 export const SITE_DESCRIPTION =
-  'IT・ビジネスでよく出る3文字略語を、初級・中級・上級に分けて解説する無料の辞典サイトです。';
+  '非エンジニア向けに、IT業界でよく出てくる3文字略語を索引・検索で引ける無料の辞典サイトです。';
 
 export const SITE_FOOTER = `${SITE_NAME} · static site`;
 

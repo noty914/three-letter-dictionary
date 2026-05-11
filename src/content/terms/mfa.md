@@ -3,7 +3,7 @@ titleJa: MFA
 titleEn: Multi-Factor Authentication
 titleEnJa: 多要素認証
 tags: [セキュリティ]
-related: [iam, pin, sso]
+related: [iam, pin, sso, idp]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

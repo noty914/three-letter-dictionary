@@ -3,7 +3,7 @@ titleJa: TLS
 titleEn: Transport Layer Security
 titleEnJa: トランスポート層セキュリティ
 tags: [セキュリティ]
-related: [dns, vpn]
+related: [dns, vpn, ssl]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

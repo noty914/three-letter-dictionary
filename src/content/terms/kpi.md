@@ -3,7 +3,7 @@ titleJa: KPI
 titleEn: Key Performance Indicator
 titleEnJa: 重要業績評価指標
 tags: [経営]
-related: [kgi, ksf, pmo, roi, csr]
+related: [kgi, ksf, pmo, roi, csr, sfa]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
