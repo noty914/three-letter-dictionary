@@ -37,13 +37,38 @@ function buildIntermediateTemplateFromProse(md: string, advanced: string): strin
   const why = paragraphs[0] ?? 'この用語を使う目的を整理するため。';
   const howRaw = findByPrefix('動き方は');
   const whenRaw = findByPrefix('典型シーンは');
-  const misconceptionRaw = findByPrefix('混同しやすいのは');
+  const whyPara = paragraphs[0] ?? '';
+
+  let misconceptionRaw = findByPrefix('混同しやすいのは');
+  if (!misconceptionRaw) {
+    const used = new Set([howRaw, whenRaw].filter(Boolean));
+    const rest = paragraphs.filter((p) => p && p !== whyPara && !used.has(p));
+    misconceptionRaw =
+      rest.find((p) =>
+        /似ていますが|と似て|に似て|と見なしがち|混同|誤解し|は別物|は異なる|違いは|の差は/i.test(p),
+      ) ??
+      rest[rest.length - 1] ??
+      '';
+  }
 
   const normalizeSentence = (text: string, prefix: string) =>
     text
       .replace(new RegExp(`^${prefix}[、,]?\\s*[「"]?`), '')
       .replace(/[」"]?です。?$/, '')
       .trim();
+
+  const naturalizeMisconception = (text: string): string => {
+    const t = text.trim();
+    if (!t) return '似た用語と似ていますが、用途や目的は異なる点に注意。';
+    if (/似ていますが|と似て|に似て|見えますが|捉えられがちですが/.test(t)) return t;
+
+    const sentenceSplit = t.match(/^(.+?)です。?\s*(.+)$/);
+    if (sentenceSplit) {
+      return `${sentenceSplit[1]}と似ていますが、${sentenceSplit[2]}`;
+    }
+
+    return `似た用語と似ていますが、${t}`;
+  };
 
   const how = howRaw
     ? normalizeSentence(howRaw, '動き方は')
@@ -52,8 +77,8 @@ function buildIntermediateTemplateFromProse(md: string, advanced: string): strin
     ? normalizeSentence(whenRaw, '典型シーンは')
     : '導入や運用方針を決める場面';
   const misconception = misconceptionRaw
-    ? normalizeSentence(misconceptionRaw, '混同しやすいのは')
-    : '似た用語と目的が同じではない点に注意。';
+    ? naturalizeMisconception(normalizeSentence(misconceptionRaw, '混同しやすいのは'))
+    : '似た用語と似ていますが、用途や目的は異なる点に注意。';
 
   const canDoBullets = extractCanDoBulletsFromAdvanced(advanced);
   const canDo = canDoBullets.length
