@@ -23,3 +23,14 @@ export function collectAllTags(
   }
   return [...set].sort((a, b) => a.localeCompare(b, 'ja'));
 }
+
+export function countTermsWithTag(
+  terms: { data: { tags?: string[] } }[],
+  tag: string,
+): number {
+  let n = 0;
+  for (const t of terms) {
+    if ((t.data.tags ?? []).includes(tag)) n++;
+  }
+  return n;
+}

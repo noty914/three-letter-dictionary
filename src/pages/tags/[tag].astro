@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getTagCatalogDescription } from '@/data/tag-catalog';
+import { assertTagCatalogMatchesTerms } from '@/lib/tag-catalog-sync';
 import { azKeyFromSlug, termSlug } from '@/lib/term-id';
 import { collectAllTags, paramToTag, tagToParam } from '@/lib/tags';
 import { withBase } from '@/lib/base-path';
 
 export async function getStaticPaths() {
   const terms = await getCollection('terms');
+  assertTagCatalogMatchesTerms(terms);
   const tags = collectAllTags(terms);
   return tags.map((tag) => ({
     params: { tag: tagToParam(tag) },
@@ -21,6 +24,7 @@ const terms = all
   .sort((a, b) => termSlug(a.id).localeCompare(termSlug(b.id), 'en'));
 
 const title = `タグ「${rawTag}」の用語`;
+const tagDescription = getTagCatalogDescription(rawTag);
 ---
 
 <BaseLayout title={title} description={`タグ ${rawTag} が付いた用語一覧。`}>
@@ -37,6 +41,7 @@ const title = `タグ「${rawTag}」の用語`;
         {rawTag}
       </span>
     </h1>
+    {tagDescription ? <p class="tag-page__summary">{tagDescription}</p> : null}
     <p class="lede">該当 {terms.length} 件</p>
     {
       terms.length === 0 ? (

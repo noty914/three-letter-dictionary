@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { collectAllTags, tagToParam } from '@/lib/tags';
+import { getTagCatalogDescription } from '@/data/tag-catalog';
+import { assertTagCatalogMatchesTerms } from '@/lib/tag-catalog-sync';
+import { collectAllTags, countTermsWithTag, tagToParam } from '@/lib/tags';
 import { withBase } from '@/lib/base-path';
 
 const terms = await getCollection('terms');
+assertTagCatalogMatchesTerms(terms);
 const tags = collectAllTags(terms);
 ---
 
@@ -14,14 +17,20 @@ const tags = collectAllTags(terms);
     <p class="lede">タグを選ぶと、そのタグが付いた用語だけが表示されます。</p>
     <ul class="tag-directory">
       {
-        tags.map((tag) => (
-          <li>
-            <a class="tag-pill tag-pill--large" href={withBase(`tags/${tagToParam(tag)}/`)}>
-              <span class="tag-pill__prefix">#</span>
-              {tag}
-            </a>
-          </li>
-        ))
+        tags.map((tag) => {
+          const description = getTagCatalogDescription(tag)!;
+          const count = countTermsWithTag(terms, tag);
+          return (
+            <li class="tag-directory__row">
+              <a class="tag-pill tag-pill--large" href={withBase(`tags/${tagToParam(tag)}/`)}>
+                <span class="tag-pill__prefix">#</span>
+                {tag}
+              </a>
+              <p class="tag-directory__desc">{description}</p>
+              <span class="tag-directory__count">該当 {count} 件</span>
+            </li>
+          );
+        })
       }
     </ul>
   </main>
