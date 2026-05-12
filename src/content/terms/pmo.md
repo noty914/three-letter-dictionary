@@ -3,7 +3,7 @@ titleJa: PMO
 titleEn: Project Management Office
 titleEnJa: プロジェクト管理オフィス
 tags: [プロジェクト]
-related: [kpi, qcd, wbs]
+related: [kpi, qcd, wbs, fyi]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

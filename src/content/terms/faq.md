@@ -3,7 +3,7 @@ titleJa: FAQ
 titleEn: Frequently Asked Questions
 titleEnJa: よくある質問
 tags: [業務運用]
-related: [crm, uat]
+related: [crm, uat, fyi]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
