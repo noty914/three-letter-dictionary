@@ -3,7 +3,7 @@ titleJa: SDK
 titleEn: Software Development Kit
 titleEnJa: ソフトウェア開発キット
 tags: [開発]
-related: [api, ide, app, cli]
+related: [api, ide, app, cli, fde]
 ---
 
 ## ① 非エンジニア向けのざっくり概要

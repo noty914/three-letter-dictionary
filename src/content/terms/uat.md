@@ -3,7 +3,7 @@ titleJa: UAT
 titleEn: User Acceptance Testing
 titleEnJa: ユーザー受入テスト
 tags: [プロジェクト]
-related: [faq, mvp, fyi]
+related: [faq, mvp, fyi, fde]
 ---
 
 ## ① 非エンジニア向けのざっくり概要
